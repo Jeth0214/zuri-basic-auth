@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     if ($passwordError == "" && $emailError === "") {
         $ifExist = checkIfAccountsExists($email, $password);
         if (!$ifExist) {
-            $accountErr = "Email/password is incorrect.";
+            $accountErr = "These credentials do not match our records.";
         } else {
             $_SESSION['status'] = 'valid';
             $_SESSION['email'] = $email;

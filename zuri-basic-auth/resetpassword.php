@@ -12,33 +12,21 @@ if (isset($_POST['submit'])) {
         $newpassword = md5($newpassword);
     }
 
-    //when there is no error, check if the database has this data
+    //when there is no error
     if ($passwordError == "") {
         $email = $_SESSION['email'];
         $oldPassword = $_SESSION['password'];
-        echo $email;
-        echo '<br>';
-        echo $oldPassword;
-        echo '<br>';
         $data =  "$email $oldPassword";
         $db = "database/database.txt";
         $dataArray =  file_get_contents($db);
         $newArray = explode("\n", $dataArray);
-        print_r($newArray);
-        echo '<br>';
-        echo array_search($data, $newArray);
-        echo '<br>';
-        echo $newpassword;
-        echo '<br>';
         $index = array_search($data, $newArray);
         $newArray[$index] = "$email $newpassword";
-        print_r($newArray);
         $myfile = fopen($db, "w") or die("Unable to open file!");
-
+        $_SESSION['password'] = $newpassword;
         foreach ($newArray as $i => $val) {
             fwrite($myfile, "$val\n");
-        }
-
+        };
         fclose($myfile);
         header('Location:home.php');
     }
@@ -61,7 +49,7 @@ function clean_input_data($data)
     <div class="card">
         <div class="card-header">
             <h3 class="card-title text-primary text-center">
-                Enter our new Password
+                Enter your new Password
             </h3>
         </div>
         <div class="card-body">

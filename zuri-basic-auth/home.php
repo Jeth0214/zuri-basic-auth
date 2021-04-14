@@ -14,6 +14,7 @@ require('./session.php');
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>Your Email: </strong> <?php echo $_SESSION['email'] ?></li>
+                <li class="list-group-item"><strong>Your hashed password: </strong> <?php echo $_SESSION['password'] ?></li>
             </ul>
             <div class="d-flex justify-content-between">
                 <div class="">
