@@ -1,0 +1,8 @@
+body {background-color: rgb(253, 250, 250);}
+
+.card{
+    width: 80%;
+    max-width: 40rem;
+    margin: auto;
+    
+}
