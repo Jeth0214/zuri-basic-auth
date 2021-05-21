@@ -2,7 +2,7 @@
 session_start();
 $email = $password = $emailError =  $passwordError = $accountErr = "";
 
-if ($_SESSION['status'] == 'invalid' || empty($_SESSION['status'])) {
+if (empty($_SESSION['status'])) {
     /* Set Default Invalid */
     $_SESSION['status'] = 'invalid';
 }
